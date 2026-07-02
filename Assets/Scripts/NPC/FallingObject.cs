@@ -1,10 +1,20 @@
 using UnityEngine;
 
+public enum ObjectType
+{
+    Collectible,
+    Enemy
+}
+
 public class FallingObject : MonoBehaviour
 {
     [Header("Component References")]
     [SerializeField]
     private Rigidbody2D rb;
+
+    [Header("Identity")]
+    [SerializeField]
+    private ObjectType type;
 
     [Header("Velocity")]
     [SerializeField]
@@ -22,7 +32,21 @@ public class FallingObject : MonoBehaviour
         {
             rb.linearVelocityY = -maxFallSpeed;
         }
+    }
 
-        print(rb.linearVelocityY);
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            switch (type)
+            {
+                case ObjectType.Collectible:
+                    // Add collectible
+                    break;
+                case ObjectType.Enemy:
+                    // Damage player
+                    break;
+            }
+        }
     }
 }
