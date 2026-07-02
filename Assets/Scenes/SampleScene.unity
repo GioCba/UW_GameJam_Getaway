@@ -394,7 +394,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   rb: {fileID: 1237248308}
+  leftRotation: {x: 0, y: 0, z: 0.38268346, w: 0.9238795}
+  rightRotation: {x: 0, y: 0, z: 0.3826835, w: -0.9238795}
   moveSpeed: 10
+  rotationSpeed: 4
 --- !u!50 &1237248308
 Rigidbody2D:
   serializedVersion: 5
@@ -421,7 +424,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 2
+  m_Constraints: 6
 --- !u!212 &1237248309
 SpriteRenderer:
   serializedVersion: 3
@@ -612,7 +615,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: df70fa95-8a34-4494-b137-73ab6b9c7d37
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
