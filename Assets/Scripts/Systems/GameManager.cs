@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameOverUIController gameOverUIController;
+
     public static GameManager Instance {get; private set;}
 
     public bool isGameOver {get; private set;}
@@ -18,6 +21,6 @@ public class GameManager : MonoBehaviour
 
         isGameOver = true;
 
-        // Show Game Over UI
+        gameOverUIController.Activate();
     }
 }
