@@ -13,15 +13,19 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField]
     private float timeBetweenSpawns;
 
+    private float currentTime;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    IEnumerator Start()
+
+    void Update()
     {
-        while (true)
+        if (GameManager.Instance.isGameOver) return;
+
+        currentTime += Time.deltaTime;
+
+        if (currentTime >= timeBetweenSpawns)
         {
             Spawn();
-
-            yield return new WaitForSeconds(timeBetweenSpawns);
+            currentTime -= timeBetweenSpawns;
         }
     }
 
