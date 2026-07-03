@@ -719,7 +719,7 @@ MonoBehaviour:
   - {x: -3, y: 9, z: 0}
   - {x: 0, y: 9, z: 0}
   - {x: 3, y: 9, z: 0}
-  timeBetweenSpawns: 1.5
+  timeBetweenSpawns: 1
 --- !u!4 &1891699054
 Transform:
   m_ObjectHideFlags: 0
