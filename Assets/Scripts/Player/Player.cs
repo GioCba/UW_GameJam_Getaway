@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
     {
         collectiblesObtained++;
         UIController.UpdateCounter(collectiblesObtained);
+
+        if (collectiblesObtained == 10)
+        {
+            BackgroundShifter.isTransition = true;
+        }
     }
 
     public void TakeDamage()
