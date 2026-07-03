@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum MenuState
 {
     Main,
     Settings,
-    Tutorial
+    Tutorial,
+    Credits
 }
 
 public class MainMenuUIController : MonoBehaviour
@@ -16,10 +18,17 @@ public class MainMenuUIController : MonoBehaviour
     private GameObject settingsMenu;
     [SerializeField]
     private GameObject tutorialMenu;
+    [SerializeField]
+    private GameObject creditsMenu;
 
     void Awake()
     {
         ShowMenu(MenuState.Main);
+    }
+
+    public void OnPlayButton()
+    {
+        SceneManager.LoadScene(1);
     }
 
     public void ShowMenu(MenuState menu)
@@ -27,6 +36,7 @@ public class MainMenuUIController : MonoBehaviour
         mainMenu.SetActive(menu == MenuState.Main);
         settingsMenu.SetActive(menu == MenuState.Settings);
         tutorialMenu.SetActive(menu == MenuState.Tutorial);
+        creditsMenu.SetActive(menu == MenuState.Credits);
     }
 
     public void OnSettingsButton()
@@ -44,9 +54,9 @@ public class MainMenuUIController : MonoBehaviour
         ShowMenu(MenuState.Main);
     }
 
-    public void OnQuitButton()
+    public void OnCreditsButton()
     {
-        Application.Quit();
+        ShowMenu(MenuState.Credits);
     } 
     
 }
