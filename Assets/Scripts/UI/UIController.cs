@@ -15,6 +15,7 @@ public class UIController : MonoBehaviour
 
     void Awake()
     {
+        UpdateCounter(0);
         gameOverObject.SetActive(false);
         playingUIObject.SetActive(true);
     }
