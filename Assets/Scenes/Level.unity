@@ -2616,7 +2616,7 @@ MonoBehaviour:
   - {x: -3, y: 9, z: -1}
   - {x: 0, y: 9, z: -1}
   - {x: 3, y: 9, z: -1}
-  timeBetweenSpawns: 1
+  timeBetweenSpawns: 0.8
   weights: 040000000500000001000000
 --- !u!4 &1891699054
 Transform:
