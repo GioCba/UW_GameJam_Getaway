@@ -22,26 +22,6 @@ public class FallingObject : MonoBehaviour
     [SerializeField]
     private float maxFallSpeed;
 
-    private Animator anim;
-    private float animDuration;
-
-    void Awake()
-    {
-        if (type == ObjectType.Collectible)
-        {
-            anim = GetComponent<Animator>();
-            AnimationClip[] clips = anim.runtimeAnimatorController.animationClips;
-
-            foreach (AnimationClip  clip in clips)
-            {
-                if (clip.name == "suitcaseCollected")
-                {
-                    animDuration = clip.length;
-                }
-            }
-        }
-    }
-
     void FixedUpdate()
     {
         if (Mathf.Abs(rb.linearVelocityY) > maxFallSpeed)
@@ -66,34 +46,24 @@ public class FallingObject : MonoBehaviour
                     maxFallSpeed = 8f;
                     p.Collect();
                     GameFeedback.Instance?.PlayCollectFeedback();
-                    StartCoroutine(playCollectedAnimation());
                     break;
 
                 case ObjectType.Enemy:
                     p.TakeDamage();
                     CameraShake.Instance?.Shake();
                     GameFeedback.Instance?.PlayHitFeedback();
-                    Destroy(gameObject);
                     break;
 
                 case ObjectType.Heart:
                     p.Heal();
-                    Destroy(gameObject);
                     break;
             }
             
+            Destroy(gameObject);
+
         } else if (collision.CompareTag("ObjectCollector"))
         {
             Destroy(gameObject);
         } 
-    }
-
-    IEnumerator playCollectedAnimation()
-    {
-        anim.SetTrigger("Collected");
-        
-        yield return new WaitForSeconds(animDuration);
-
-        Destroy(gameObject);
     }
 }
