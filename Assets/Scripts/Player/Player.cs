@@ -4,13 +4,22 @@ public class Player : MonoBehaviour
 {
     [Header("Health Settings")]
     [SerializeField]
-    private int health;
+    private int maxHealth;
 
     [Header("Collectible Settings")]
     private int collectiblesObtained;
 
     [SerializeField]
     private UIController UIController;
+    [SerializeField]
+    private HeartUI heartUI;
+
+    private int currentHealth;
+
+    void Awake()
+    {
+        currentHealth = maxHealth;
+    }
 
     public void Collect()
     {
@@ -25,19 +34,20 @@ public class Player : MonoBehaviour
 
     public void Heal()
     {
-        if (health < 3)
+        if (currentHealth < maxHealth)
         {
-            health++;
+            currentHealth++;
+            heartUI.UpdateHearts(currentHealth, maxHealth);
         }
     }
 
     public void TakeDamage()
     {
-        health--;
+        currentHealth--;
+        heartUI.UpdateHearts(currentHealth, maxHealth);
 
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
-            
             Die();
         }
     }
