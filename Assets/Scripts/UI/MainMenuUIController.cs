@@ -58,5 +58,19 @@ public class MainMenuUIController : MonoBehaviour
     {
         ShowMenu(MenuState.Credits);
     } 
+
+    public void OnScreenShakeToggle(bool isEnabled)
+    {
+        int valueToSave = isEnabled ? 1 : 0;
+        PlayerPrefs.SetInt("ScreenShakeEnabled", valueToSave);
+        PlayerPrefs.Save();
+    }
+
+    public void OnSFXToggle(bool isEnabled)
+    {
+        int valueToSave = isEnabled ? 1 : 0;
+        PlayerPrefs.SetInt("SFXEnabled", valueToSave);
+        PlayerPrefs.Save();
+    }
     
 }

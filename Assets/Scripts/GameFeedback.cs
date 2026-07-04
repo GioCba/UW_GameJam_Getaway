@@ -26,8 +26,14 @@ public class GameFeedback : MonoBehaviour
     private Coroutine popCoroutine;
     private Vector3 counterOriginalScale = Vector3.one;
 
+    private bool isShakeOn;
+    private bool isSFXOn;
+
     private void Awake()
     {
+        isShakeOn = PlayerPrefs.GetInt("ScreenShakeEnabled", 1) == 1;
+        isSFXOn = PlayerPrefs.GetInt("SFXEnabled", 1) == 1;
+
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -122,7 +128,7 @@ public class GameFeedback : MonoBehaviour
 
     private void PopCounter()
     {
-        if (collectibleCounter == null) return;
+        if (!isShakeOn || collectibleCounter == null) return;
 
         if (popCoroutine != null)
         {
@@ -163,7 +169,7 @@ public class GameFeedback : MonoBehaviour
 
     private void PlaySound(AudioClip clip)
     {
-        if (audioSource == null || clip == null) return;
+        if (!isSFXOn || audioSource == null || clip == null) return;
         audioSource.PlayOneShot(clip);
     }
 

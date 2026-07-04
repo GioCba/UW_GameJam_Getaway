@@ -11,8 +11,14 @@ public class CameraShake : MonoBehaviour
     private Vector3 originalLocalPosition;
     private Coroutine shakeCoroutine;
 
+    private bool isShakeOn;
+
     private void Awake()
     {
+        int savedValue = PlayerPrefs.GetInt("ScreenShakeEnabled", 1);
+
+        isShakeOn = savedValue == 1;
+
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -25,6 +31,7 @@ public class CameraShake : MonoBehaviour
 
     public void Shake()
     {
+        if (!isShakeOn) return;
         Shake(defaultDuration, defaultStrength);
     }
 
