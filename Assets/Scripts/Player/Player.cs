@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private UIController UIController;
     [SerializeField]
     private HeartUI heartUI;
+    [SerializeField]
+    private ObjectSpawner objectSpawner;
 
     private int currentHealth;
 
@@ -29,11 +31,13 @@ public class Player : MonoBehaviour
         if (collectiblesObtained == 10)
         {
             BackgroundShifter.isTransition = true;
+            objectSpawner.NextEnvironment();
         }
 
         if (collectiblesObtained == 20)
         {
             BackgroundShifter.isTransition = true;
+            objectSpawner.NextEnvironment();
         }
 
         if (collectiblesObtained == 30)

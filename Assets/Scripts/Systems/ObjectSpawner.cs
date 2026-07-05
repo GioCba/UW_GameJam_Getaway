@@ -2,27 +2,51 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    [Header("Spawnable Objects")]
+    [Header("Difficulty Configs")]
     [SerializeField]
-    private GameObject[] objects;
+    private DifficultyConfig easyConfig;
+    [SerializeField]
+    private DifficultyConfig mediumConfig;
+    [SerializeField]
+    private DifficultyConfig hardConfig;
+
+
+    private DifficultyConfig activeConfig;
 
     [Header("Spawn settings")]
     [SerializeField]
     private Vector3[] spawnPoints;
-    [SerializeField]
-    private float timeBetweenSpawns;
-    [SerializeField]
-    private int[] weights;
 
     private float currentTime;
 
     private int totalWeight;
 
+    private EnvironmentDifficulty currentPhase;
+
+    private int currentEnvIndex;
+
     void Awake()
     {
-        for (int i = 0; i < weights.Length; i++)
+        string savedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Medium");
+
+        switch (savedDifficulty)
         {
-            totalWeight += weights[i];
+            case "Easy":
+                activeConfig = easyConfig;
+                break;
+            case "Medium":
+                activeConfig = mediumConfig;
+                break;
+            case "Hard":
+                activeConfig = hardConfig;
+                break;
+        }
+        
+        currentPhase = activeConfig.environmentPhases[currentEnvIndex];
+
+        for (int i = 0; i < currentPhase.weights.Length; i++)
+        {
+            totalWeight += currentPhase.weights[i];
         }
     }
 
@@ -32,10 +56,31 @@ public class ObjectSpawner : MonoBehaviour
 
         currentTime += Time.deltaTime;
 
-        if (currentTime >= timeBetweenSpawns)
+        if (currentTime >= currentPhase.timeBetweenSpawns)
         {
             Spawn();
-            currentTime -= timeBetweenSpawns;
+            currentTime -= currentPhase.timeBetweenSpawns;
+        }
+    }
+
+    public void NextEnvironment()
+    {
+        if (currentEnvIndex + 1 < activeConfig.environmentPhases.Length)
+        {
+            currentEnvIndex++;
+            UpdateCurrentPhaseData();
+        }
+    }
+
+    private void UpdateCurrentPhaseData()
+    {
+        currentPhase = activeConfig.environmentPhases[currentEnvIndex];
+
+        totalWeight = 0;
+
+        for (int i = 0; i < currentPhase.weights.Length; i++)
+        {
+            totalWeight += currentPhase.weights[i];
         }
     }
 
@@ -45,13 +90,13 @@ public class ObjectSpawner : MonoBehaviour
 
         int cumulative = 0;
 
-        for (int i = 0; i < objects.Length; i++)
+        for (int i = 0; i < currentPhase.objects.Length; i++)
         {
-            cumulative += weights[i];
+            cumulative += currentPhase.weights[i];
 
             if (n < cumulative)
             {
-                Instantiate(objects[i], spawnPoints[Random.Range(0, spawnPoints.Length)], Quaternion.identity);
+                Instantiate(currentPhase.objects[i], spawnPoints[Random.Range(0, spawnPoints.Length)], Quaternion.identity);
                 return;
             }
         }
