@@ -19,6 +19,7 @@ public class GameFeedback : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip collectClip;
+    [SerializeField] private AudioClip healClip;
     [SerializeField] private AudioClip hitClip;
     [SerializeField] private bool generateTemporarySounds = true;
 
@@ -64,6 +65,11 @@ public class GameFeedback : MonoBehaviour
                 collectClip = GenerateTone(880f, 0.08f, 0.18f);
             }
 
+            if (healClip == null)
+            {
+                healClip = GenerateTone(880f, 0.08f, 0.18f);
+            }
+
             if (hitClip == null)
             {
                 hitClip = GenerateTone(140f, 0.12f, 0.25f);
@@ -80,6 +86,11 @@ public class GameFeedback : MonoBehaviour
     {
         PlaySound(collectClip);
         PopCounter();
+    }
+
+    public void PlayHealFeedback()
+    {
+        PlaySound(healClip);
     }
 
     public void PlayHitFeedback()

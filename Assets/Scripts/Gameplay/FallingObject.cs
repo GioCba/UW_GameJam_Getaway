@@ -56,7 +56,7 @@ public class FallingObject : MonoBehaviour
 
                 case ObjectType.Heart:
                     p.Heal();
-                    // TODO: Add HealFeedback
+                    GameFeedback.Instance?.PlayHealFeedback();
                     break;
             }
             
