@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +22,10 @@ public class MainMenuUIController : MonoBehaviour
     private GameObject tutorialMenu;
     [SerializeField]
     private GameObject creditsMenu;
+
+    [Header("Difficulty")]
+    [SerializeField]
+    private TMP_Dropdown difficultyDropdown;
 
     void Awake()
     {
@@ -72,5 +78,17 @@ public class MainMenuUIController : MonoBehaviour
         PlayerPrefs.SetInt("SFXEnabled", valueToSave);
         PlayerPrefs.Save();
     }
-    
+
+    public void OnDropdownValueChanged(int index)
+    {
+        string diff = difficultyDropdown.options[index].text;
+
+        OnSetDifficulty(diff);
+    }
+
+    public void OnSetDifficulty(string difficulty)
+    {
+        PlayerPrefs.SetString("SelectedDifficulty", difficulty);
+        PlayerPrefs.Save();
+    }
 }
