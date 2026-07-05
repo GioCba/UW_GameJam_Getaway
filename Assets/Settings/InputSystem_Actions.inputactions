@@ -420,7 +420,7 @@
                 {
                     "name": "",
                     "id": "f744d17d-70d9-4fe1-8519-a722d717d430",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
