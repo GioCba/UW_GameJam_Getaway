@@ -1995,7 +1995,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2018,7 +2018,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2292,7 +2292,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3621,6 +3621,8 @@ GameObject:
   - component: {fileID: 837297252}
   - component: {fileID: 837297251}
   - component: {fileID: 837297250}
+  - component: {fileID: 837297254}
+  - component: {fileID: 837297253}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -3742,6 +3744,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837297248}
   m_CullTransparentMesh: 1
+--- !u!114 &837297253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837297248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d42aa7d81254f61a8eed2bed158ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGradient
+  direction: 1
+  colorA: {r: 0.13725491, g: 0.7137255, b: 0.9019608, a: 1}
+  colorB: {r: 0.11764706, g: 0.41960785, b: 1, a: 1}
+--- !u!114 &837297254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837297248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22595b0033d7b4d718af5d311600c923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FancyButtonHover
+  hoverScale: 1.06
+  pressedScale: 0.96
+  speed: 12
 --- !u!1 &858338145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4261,7 +4293,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -4320,6 +4352,8 @@ GameObject:
   - component: {fileID: 1108384410}
   - component: {fileID: 1108384409}
   - component: {fileID: 1108384408}
+  - component: {fileID: 1108384412}
+  - component: {fileID: 1108384411}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -4441,6 +4475,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108384406}
   m_CullTransparentMesh: 1
+--- !u!114 &1108384411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108384406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d42aa7d81254f61a8eed2bed158ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGradient
+  direction: 1
+  colorA: {r: 0.13725491, g: 0.7137255, b: 0.9019608, a: 1}
+  colorB: {r: 0.11764706, g: 0.41960785, b: 1, a: 1}
+--- !u!114 &1108384412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108384406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22595b0033d7b4d718af5d311600c923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FancyButtonHover
+  hoverScale: 1.06
+  pressedScale: 0.96
+  speed: 12
 --- !u!1 &1118394163
 GameObject:
   m_ObjectHideFlags: 0
@@ -4910,6 +4974,8 @@ GameObject:
   - component: {fileID: 1318267122}
   - component: {fileID: 1318267121}
   - component: {fileID: 1318267120}
+  - component: {fileID: 1318267124}
+  - component: {fileID: 1318267123}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -5031,6 +5097,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318267118}
   m_CullTransparentMesh: 1
+--- !u!114 &1318267123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318267118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07d42aa7d81254f61a8eed2bed158ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIGradient
+  direction: 1
+  colorA: {r: 0.13725491, g: 0.7137255, b: 0.9019608, a: 1}
+  colorB: {r: 0.11764706, g: 0.41960785, b: 1, a: 1}
+--- !u!114 &1318267124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318267118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22595b0033d7b4d718af5d311600c923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FancyButtonHover
+  hoverScale: 1.06
+  pressedScale: 0.96
+  speed: 12
 --- !u!1 &1334190123
 GameObject:
   m_ObjectHideFlags: 0
@@ -5284,7 +5380,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5307,7 +5403,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5645,7 +5741,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5782,7 +5878,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -6840,7 +6936,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6863,7 +6959,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
