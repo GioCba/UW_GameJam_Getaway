@@ -31,7 +31,12 @@ public class Player : MonoBehaviour
             BackgroundShifter.isTransition = true;
         }
 
-        if (collectiblesObtained == 25)
+        if (collectiblesObtained == 20)
+        {
+            BackgroundShifter.isTransition = true;
+        }
+
+        if (collectiblesObtained == 30)
         {
             GameManager.Instance.LevelCompleted();
         }

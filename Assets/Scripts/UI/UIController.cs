@@ -54,6 +54,6 @@ public class UIController : MonoBehaviour
 
     public void UpdateCounter(int currentValue)
     {
-        counterText.text = currentValue + " / 25";
+        counterText.text = currentValue + " / 30";
     }
 }

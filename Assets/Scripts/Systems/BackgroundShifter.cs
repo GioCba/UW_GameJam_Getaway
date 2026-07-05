@@ -4,6 +4,8 @@ public class BackgroundShifter : MonoBehaviour
 {
     [Header("Background Loop Settings")]
     [SerializeField]
+    private GameObject[] officeBackgrounds;
+    [SerializeField]
     private GameObject[] cityBackgrounds;
     [SerializeField]
     private GameObject[] forestBackgrounds;
@@ -21,11 +23,12 @@ public class BackgroundShifter : MonoBehaviour
     private bool transitionDone = false;
     private bool transitionStarted  = false;
     private float pixelOverlapBuffer = 0.02f;
+    private int nextBiomeIndex = 1;
 
     void Awake()
     {
         isTransition = false;
-        currentBackgrounds = cityBackgrounds;
+        currentBackgrounds = officeBackgrounds;
     }
 
     void Update()
@@ -39,7 +42,16 @@ public class BackgroundShifter : MonoBehaviour
             transitionStarted = false;
         } else
         {
-            Transition();    
+            switch (nextBiomeIndex)
+            {
+                case 1:
+                    Transition(currentBackgrounds, cityBackgrounds);
+                    break;
+                case 2:
+                    Transition(currentBackgrounds, forestBackgrounds);
+                    break;
+            }
+            
         }
         
     }
@@ -61,54 +73,56 @@ public class BackgroundShifter : MonoBehaviour
         }
     }
 
-    void Transition()
+    void Transition(GameObject[] oldBGs, GameObject[] newBGs)
     {
         if (!transitionStarted)
         {
-            InitializeForestPositions();
+            InitializeNewPositions(oldBGs, newBGs);
         }
 
-        foreach (GameObject city in cityBackgrounds)
+        foreach (GameObject bg in oldBGs)
         {
-            city.transform.Translate(Vector3.down * loopSpeed * Time.deltaTime);
+            bg.transform.Translate(Vector3.down * loopSpeed * Time.deltaTime);
         }
 
-        Scroll(forestBackgrounds, loopSpeed);
+        Scroll(newBGs, loopSpeed);
 
-        if (forestBackgrounds[0].transform.position.y <= 0f && !transitionDone)
+        if (newBGs[0].transform.position.y <= 0f && !transitionDone)
         {
             isTransition = false;
             transitionDone = true;
-            currentBackgrounds = forestBackgrounds; 
+            currentBackgrounds = newBGs; 
 
-            foreach (GameObject city in cityBackgrounds)
+            foreach (GameObject bg in oldBGs)
             {
-                city.SetActive(false);
+                bg.SetActive(false);
             }
+
+            nextBiomeIndex++;
         }
     }
 
-    void InitializeForestPositions()
+    void InitializeNewPositions(GameObject[] oldBGs, GameObject[] newBGs)
     {
         transitionStarted = true;
 
-        float highestCityY = float.MinValue;
-        foreach (GameObject city in cityBackgrounds)
+        float highestY = float.MinValue;
+        foreach (GameObject bg in oldBGs)
         {
-            if (city.transform.position.y > highestCityY)
+            if (bg.transform.position.y > highestY)
             {
-                highestCityY = city.transform.position.y;
+                highestY = bg.transform.position.y;
             }
         }
 
         float individualBackgroundHeight = 16f;
 
-        for (int i = 0; i < forestBackgrounds.Length; i++)
+        for (int i = 0; i < newBGs.Length; i++)
         {
-            forestBackgrounds[i].transform.position = new Vector3(
-                forestBackgrounds[i].transform.position.x, 
-                highestCityY + (individualBackgroundHeight * (i + 1)) - pixelOverlapBuffer, 
-                forestBackgrounds[i].transform.position.z
+            newBGs[i].transform.position = new Vector3(
+                newBGs[i].transform.position.x, 
+                highestY + (individualBackgroundHeight * (i + 1)) - pixelOverlapBuffer, 
+                newBGs[i].transform.position.z
             );
         }
     }
