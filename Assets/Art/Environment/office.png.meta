@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 863efbcafec6c404998d85740fe51533
+guid: dc2e83e876fca18489b97819785e9cc7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7231229785543949480
-    second: office_desk_0
+      213: 813220869446798828
+    second: office_desk 1_0
   - first:
-      213: -8290308399126332726
-    second: office_desk_1
+      213: 2825062258152383465
+    second: office_desk 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -107,9 +107,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 110
-        y: 1130
-        width: 1737
-        height: 646
+        y: 1139
+        width: 1744
+        height: 637
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 853cd6f92d285ab90800000000000000
-      internalID: -7231229785543949480
+      spriteID: ced8f477214294b00800000000000000
+      internalID: 813220869446798828
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aca33a75f68e2fc80800000000000000
-      internalID: -8290308399126332726
+      spriteID: 9e3298de723a43720800000000000000
+      internalID: 2825062258152383465
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: a3162e0b62a709c47a7a3480584b5bc9
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chair: -8290308399126332726
-      desk: -7231229785543949480
+      chair: 2825062258152383465
+      desk: 813220869446798828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
