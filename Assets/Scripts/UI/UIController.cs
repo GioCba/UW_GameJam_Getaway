@@ -2,6 +2,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum PlayState
+{
+    Playing,
+    Paused,
+    Completed,
+    Over
+}
+
 public class UIController : MonoBehaviour
 {
     [Header("Menu Object")]
@@ -9,6 +17,8 @@ public class UIController : MonoBehaviour
     private GameObject gameOverObject;
     [SerializeField]
     private GameObject playingUIObject;
+    [SerializeField]
+    private GameObject pauseUIObject;
     [SerializeField]
     private GameObject levelCompletedUIObject;
 
@@ -18,23 +28,15 @@ public class UIController : MonoBehaviour
     void Awake()
     {
         UpdateCounter(0);
-        gameOverObject.SetActive(false);
-        playingUIObject.SetActive(true);
-        levelCompletedUIObject.SetActive(false);
+        ShowMenu(PlayState.Playing);
     }
 
-    public void ActivateGameOverUI()
+    public void ShowMenu(PlayState state)
     {
-        gameOverObject.SetActive(true);
-        playingUIObject.SetActive(false);
-        levelCompletedUIObject.SetActive(false);
-    }
-
-    public void ActivateLevelCompletedUI()
-    {
-        gameOverObject.SetActive(false);
-        playingUIObject.SetActive(false);
-        levelCompletedUIObject.SetActive(true);
+        playingUIObject.SetActive(state == PlayState.Playing);
+        pauseUIObject.SetActive(state == PlayState.Paused);
+        levelCompletedUIObject.SetActive(state == PlayState.Completed);
+        gameOverObject.SetActive(state == PlayState.Over);
     }
 
     public void OnMainMenuButton()
