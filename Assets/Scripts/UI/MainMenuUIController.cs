@@ -30,6 +30,23 @@ public class MainMenuUIController : MonoBehaviour
     void Awake()
     {
         ShowMenu(MenuState.Main);
+
+
+        string savedDifficulty = PlayerPrefs.GetString("SelectedDifficulty", "Medium");
+        if (savedDifficulty == "Easy")
+        {
+            difficultyDropdown.value = 0;
+        }
+        else if (savedDifficulty == "Hard")
+        {
+            difficultyDropdown.value = 2;
+        }
+        else
+        {
+            difficultyDropdown.value = 1;
+        }
+
+        difficultyDropdown.RefreshShownValue();
     }
 
     public void OnPlayButton()
