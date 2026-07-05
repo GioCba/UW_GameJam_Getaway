@@ -96,7 +96,15 @@ public class ObjectSpawner : MonoBehaviour
 
             if (n < cumulative)
             {
-                Instantiate(currentPhase.objects[i], spawnPoints[Random.Range(0, spawnPoints.Length)], Quaternion.identity);
+                GameObject fallingGO = Instantiate(currentPhase.objects[i], spawnPoints[Random.Range(0, spawnPoints.Length)], Quaternion.identity);
+
+                FallingObject fallingObject = fallingGO.GetComponent<FallingObject>();
+
+                if (fallingObject != null)
+                {
+                    fallingObject.SetMaxFallSpeed(currentPhase.maxFallSpeed);    
+                }
+                
                 return;
             }
         }

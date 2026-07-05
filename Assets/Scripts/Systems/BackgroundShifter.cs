@@ -8,7 +8,7 @@ public class BackgroundShifter : MonoBehaviour
     [SerializeField]
     private GameObject[] cityBackgrounds;
     [SerializeField]
-    private GameObject[] forestBackgrounds;
+    private GameObject[] beachBackgrounds;
     [SerializeField]
     private float loopSpeed;
     [SerializeField]
@@ -48,7 +48,7 @@ public class BackgroundShifter : MonoBehaviour
                     Transition(currentBackgrounds, cityBackgrounds);
                     break;
                 case 2:
-                    Transition(currentBackgrounds, forestBackgrounds);
+                    Transition(currentBackgrounds, beachBackgrounds);
                     break;
             }
             

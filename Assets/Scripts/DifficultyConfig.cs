@@ -8,6 +8,7 @@ public struct EnvironmentDifficulty
     public float timeBetweenSpawns;
     public GameObject[] objects;
     public int[] weights;
+    public float maxFallSpeed;
 }
 
 

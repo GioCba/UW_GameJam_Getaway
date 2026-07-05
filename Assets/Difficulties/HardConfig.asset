@@ -21,6 +21,7 @@ MonoBehaviour:
     - {fileID: 61441807552793163, guid: 466300bdaced2a3429acd759b52ed5f1, type: 3}
     - {fileID: 61441807552793163, guid: f869de10a31cf1d47ab83a0e2c20b797, type: 3}
     weights: 060000000a0000000200000002000000
+    maxFallSpeed: 17
   - envName: City
     timeBetweenSpawns: 0.3
     objects:
@@ -29,7 +30,8 @@ MonoBehaviour:
     - {fileID: 61441807552793163, guid: 466300bdaced2a3429acd759b52ed5f1, type: 3}
     - {fileID: 61441807552793163, guid: f869de10a31cf1d47ab83a0e2c20b797, type: 3}
     weights: 05000000070000000700000001000000
-  - envName: Forest
+    maxFallSpeed: 17
+  - envName: Beach
     timeBetweenSpawns: 0.2
     objects:
     - {fileID: 61441807552793163, guid: bb3492a411d8981489b17e8ea5e1e5fe, type: 3}
@@ -37,3 +39,4 @@ MonoBehaviour:
     - {fileID: 61441807552793163, guid: 466300bdaced2a3429acd759b52ed5f1, type: 3}
     - {fileID: 61441807552793163, guid: f869de10a31cf1d47ab83a0e2c20b797, type: 3}
     weights: 03000000010000001000000000000000
+    maxFallSpeed: 17

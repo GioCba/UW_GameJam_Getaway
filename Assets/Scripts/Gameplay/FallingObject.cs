@@ -18,8 +18,6 @@ public class FallingObject : MonoBehaviour
     [SerializeField]
     private ObjectType type;
 
-    [Header("Velocity")]
-    [SerializeField]
     private float maxFallSpeed;
 
     void FixedUpdate()
@@ -30,6 +28,11 @@ public class FallingObject : MonoBehaviour
         {
             rb.linearVelocityY = -maxFallSpeed;
         }
+    }
+
+    public void SetMaxFallSpeed(float speed)
+    {
+        maxFallSpeed = speed;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
