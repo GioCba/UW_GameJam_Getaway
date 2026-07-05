@@ -33,7 +33,7 @@ public class BackgroundShifter : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.isLevelCompleted) return;
+        if (GameManager.Instance.isLevelCompleted || GameManager.Instance.isGameOver) return;
 
         if (!isTransition) 
         {
