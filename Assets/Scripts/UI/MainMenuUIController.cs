@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum MenuState
 {
@@ -27,6 +28,13 @@ public class MainMenuUIController : MonoBehaviour
     [SerializeField]
     private TMP_Dropdown difficultyDropdown;
 
+
+    [Header("Toggles")]
+    [SerializeField]
+    private Toggle SFXToggle;
+    [SerializeField]
+    private Toggle screenShakeToggle;
+
     void Awake()
     {
         ShowMenu(MenuState.Main);
@@ -47,6 +55,10 @@ public class MainMenuUIController : MonoBehaviour
         }
 
         difficultyDropdown.RefreshShownValue();
+
+        SFXToggle.isOn = PlayerPrefs.GetInt("SFXEnabled", 1) == 1;
+
+        screenShakeToggle.isOn = PlayerPrefs.GetInt("ScreenShakeEnabled", 1) == 1;        
     }
 
     public void OnPlayButton()

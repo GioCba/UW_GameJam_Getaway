@@ -890,6 +890,8 @@ MonoBehaviour:
   tutorialMenu: {fileID: 657042704}
   creditsMenu: {fileID: 1334190123}
   difficultyDropdown: {fileID: 1922579357}
+  SFXToggle: {fileID: 2055390399}
+  screenShakeToggle: {fileID: 1723003966}
 --- !u!4 &181930126
 Transform:
   m_ObjectHideFlags: 0
